@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 21:34:36 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/13 00:49:46 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/13 15:22:42 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	check_paths(char *argv)
 		close(fd);
 		error();
 	}
+	check_extension(argv);
 }
 
 void	check_extension(char *argv)

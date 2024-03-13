@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 23:25:41 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/13 00:51:45 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/13 17:00:36 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,27 +21,43 @@
 # include <stddef.h>
 # include <math.h>
 # include <mlx.h>
+# include "../gnl/get_next_line.h"
 
-typedef struct s_map
+typedef struct s_img
 {
-	int	c;
-	int	e;
-}	t_map;
+	void	*player;
+	void	*coin;
+	void	*door;
+	void	*road;
+	void	*wall;
+}	t_img;
 
 typedef struct s_data
 {
+	t_img	img;
 	void	*mlx_p;
 	void	*win_p;
-	t_map	*map;
+	int		fd;
+	int		hauteur;
+	int		largeur;
+	int		x;
+	int		y;
+	char	*line;
+	char	**map;
 }	t_data;
 
+
+//Mandatory
 void	usage(void);
 void	error(void);
-size_t	ft_strlen(char *str);
-void	ft_putstr_fd(char *str, int fd);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	wrong_extension(void);
+
+//PARSING :
 void	check_paths(char *argv);
 void	check_extension(char *argv);
-char	**put_map(int fd);
+char	**put_map(t_data *data, char **argv);
+//size_t	ft_strlen(char *str);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+void	ft_putstr_fd(char *str, int fd);
+char	**ft_split_up(char *s);
 #endif

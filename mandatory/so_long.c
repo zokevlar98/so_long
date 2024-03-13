@@ -6,27 +6,43 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 12:10:54 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/13 00:52:05 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/13 18:07:13 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
+void	init_data(t_data *data)
+{
+	data->mlx_p = NULL;
+	data->win_p = NULL;
+	data->fd = 0;
+	data->hauteur = 0;
+	data->largeur = 0;
+	data->x = 0;
+	data->y = 0;
+	data->line = NULL;
+	data->map = NULL;
+}
+
 int	main(int argc, char *argv[])
 {
-	int		i;
-	int		fd;
-	char	**map;
+	t_data	*data;
+	int	i = 0;
 
-	
+	data = malloc(sizeof(t_data));
+	if (!data)
+		error();
+	init_data(data);
 	if (argc == 2)
 	{
 		check_paths(argv[1]);
-		check_extension(argv[1]);
-		fd = open(argv[1], O_RDWR, 0666);
-		if (fd == -1)
-			error();
-		put_map(fd);
+		data->map = put_map(data, argv);
+		while (data->map[i] != NULL)
+		{
+			printf("%s", data->map[i]);
+			i++;
+		}
 	}
 	else
 		usage();
