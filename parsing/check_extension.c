@@ -1,44 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   check_extension.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/08 12:10:54 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/13 00:52:05 by zqouri           ###   ########.fr       */
+/*   Created: 2024/03/12 21:34:36 by zqouri            #+#    #+#             */
+/*   Updated: 2024/03/13 00:49:46 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	main(int argc, char *argv[])
+void	check_paths(char *argv)
 {
-	int		i;
-	int		fd;
-	char	**map;
-
+	int	fd;
 	
-	if (argc == 2)
+	fd = open(argv, O_RDWR, 0666);
+	if (fd == -1)
 	{
-		check_paths(argv[1]);
-		check_extension(argv[1]);
-		fd = open(argv[1], O_RDWR, 0666);
-		if (fd == -1)
-			error();
-		put_map(fd);
+		close(fd);
+		error();
 	}
-	else
-		usage();
-	return (0);
 }
 
-//int	main(void)
-//{
-//	void	*mlx;
-//	void	*mlx_win;
+void	check_extension(char *argv)
+{
+	int	i;
 
-//	mlx = mlx_init();
-//	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
-//	mlx_loop(mlx);
-//}
+	i = 0;
+	while (argv[i] != '\0')
+		i++;
+	i = i - 4;
+	if (ft_strncmp(&argv[i], ".ber", ft_strlen(".ber")) != 0)
+		wrong_extension();
+}
