@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 12:10:54 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/14 17:55:11 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/14 20:24:04 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,11 @@ int	main(int argc, char *argv[])
 	{
 		check_paths(argv[1]);
 		data->map = put_map(data, argv);
-		//int	i = 0;
-		//while (data->map[i] != NULL)
-		//{
-		//	printf("%s\n", data->map[i]);
-		//	i++;
-		//}
 		check_size(data);
 		check_border_up_down(data);
 		check_border_left_right(data);
 		check_characters(data);
+		check_map_character(data);
 	}
 	else
 		usage();
@@ -62,3 +57,9 @@ int	main(int argc, char *argv[])
 //	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
 //	mlx_loop(mlx);
 //}
+		//int	i = 0;
+		//while (data->map[i] != NULL)
+		//{
+		//	printf("%s\n", data->map[i]);
+		//	i++;
+		//}

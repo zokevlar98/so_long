@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 23:25:41 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/14 01:29:05 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/14 20:21:42 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,5 @@ char	**ft_split(char *s, char c);
 void	check_border_up_down(t_data *data);
 void	check_size(t_data *data);
 void	check_border_left_right(t_data *data);
+void	check_map_character(t_data *data);
 #endif

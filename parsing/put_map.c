@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 00:44:43 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/14 18:00:39 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/14 18:17:32 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void	check_border_left_right(t_data *data)
 	size_t	j;
 
 	i = 0;
+	data->largeur = (int)ft_strlen(data->map[i]) - 1;
 	while (data->map[i])
 	{
 		j = 0;
