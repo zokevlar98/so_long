@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 21:34:36 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/13 15:22:42 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/14 17:09:11 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	check_paths(char *argv)
 	if (fd == -1)
 	{
 		close(fd);
-		error();
+		error("ERROR: NO such Directory or file\n");
 	}
 	check_extension(argv);
 }

@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 23:25:41 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/13 17:00:36 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/14 01:29:05 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef struct s_data
 
 //Mandatory
 void	usage(void);
-void	error(void);
+void	error(char *str);
 void	wrong_extension(void);
 
 //PARSING :
@@ -60,4 +60,10 @@ char	**put_map(t_data *data, char **argv);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	ft_putstr_fd(char *str, int fd);
 char	**ft_split_up(char *s);
+void	ft_free(char **tab);
+void	check_characters(t_data *data);
+char	**ft_split(char *s, char c);
+void	check_border_up_down(t_data *data);
+void	check_size(t_data *data);
+void	check_border_left_right(t_data *data);
 #endif

@@ -6,14 +6,16 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 12:15:13 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/13 00:26:12 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/14 16:59:14 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	error(void)
+void	error(char *str)
 {
+	ft_putstr_fd("\033[31m", 2);
+	ft_putstr_fd(str, 2);
 	perror("\033[31mERROR");
 	exit (EXIT_FAILURE);
 }

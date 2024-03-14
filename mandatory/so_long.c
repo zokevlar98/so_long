@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 12:10:54 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/13 18:07:13 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/14 17:55:11 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,25 @@ void	init_data(t_data *data)
 int	main(int argc, char *argv[])
 {
 	t_data	*data;
-	int	i = 0;
 
 	data = malloc(sizeof(t_data));
 	if (!data)
-		error();
+		error("Malloc faile\n");
 	init_data(data);
 	if (argc == 2)
 	{
 		check_paths(argv[1]);
 		data->map = put_map(data, argv);
-		while (data->map[i] != NULL)
-		{
-			printf("%s", data->map[i]);
-			i++;
-		}
+		//int	i = 0;
+		//while (data->map[i] != NULL)
+		//{
+		//	printf("%s\n", data->map[i]);
+		//	i++;
+		//}
+		check_size(data);
+		check_border_up_down(data);
+		check_border_left_right(data);
+		check_characters(data);
 	}
 	else
 		usage();
