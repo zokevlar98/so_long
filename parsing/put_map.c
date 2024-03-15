@@ -6,11 +6,11 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 00:44:43 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/14 18:17:32 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/14 21:04:21 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 char	**put_map(t_data *data, char **argv)
 {

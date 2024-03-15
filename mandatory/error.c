@@ -6,11 +6,11 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 12:15:13 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/14 16:59:14 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/14 21:05:03 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 void	error(char *str)
 {

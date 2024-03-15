@@ -6,11 +6,11 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 12:10:54 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/14 20:24:04 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/14 21:04:51 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 void	init_data(t_data *data)
 {
@@ -31,7 +31,7 @@ int	main(int argc, char *argv[])
 
 	data = malloc(sizeof(t_data));
 	if (!data)
-		error("Malloc faile\n");
+		error("ERROR: Allcoation failed\n");
 	init_data(data);
 	if (argc == 2)
 	{
