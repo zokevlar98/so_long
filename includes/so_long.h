@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 23:25:41 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/14 20:21:42 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/17 17:16:49 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,29 +42,43 @@ typedef struct s_data
 	int		largeur;
 	int		x;
 	int		y;
+	int		P;
+	int		C;
+	int		E;
 	char	*line;
 	char	**map;
+	char	**map_copy;
 }	t_data;
 
 
-//Mandatory
+//Mandatory :
 void	usage(void);
-void	error(char *str);
+void	error(t_data *data, char *str);
 void	wrong_extension(void);
 
 //PARSING :
-void	check_paths(char *argv);
+void	check_file(t_data *data, char *argv);
 void	check_extension(char *argv);
-char	**put_map(t_data *data, char **argv);
-//size_t	ft_strlen(char *str);
+void	put_map(t_data *data, char **argv);
+void	check_size(t_data *data);
+void	check_border_up_down(t_data *data);
+void	check_border_left_right(t_data *data);
+void	check_map_character(t_data *data);
+void	check_map_valid(t_data *data, char **argv);
+void    check_valid_path(t_data *data);
+void    copy_map(t_data *data);
+void    serche_player_position(t_data *data);
+void    Backtracking_path(t_data *data, int i, int j);
+//mazal 5asse parsing
+void	free_map(char **map);
+void	clear_data(t_data *data);
+
+//Fonction utils :
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	ft_putstr_fd(char *str, int fd);
 char	**ft_split_up(char *s);
 void	ft_free(char **tab);
 void	check_characters(t_data *data);
 char	**ft_split(char *s, char c);
-void	check_border_up_down(t_data *data);
-void	check_size(t_data *data);
-void	check_border_left_right(t_data *data);
-void	check_map_character(t_data *data);
+//size_t	ft_strlen(char *str);
 #endif

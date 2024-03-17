@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/08 12:15:13 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/15 18:15:01 by zqouri           ###   ########.fr       */
+/*   Created: 2024/02/24 14:03:21 by zqouri            #+#    #+#             */
+/*   Updated: 2024/03/15 20:24:42 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	error(t_data *data, char *str)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	clear_data(data);
-	ft_putstr_fd("\033[31m", 2);
-	ft_putstr_fd(str, 2);
-	//perror("\033[31mERROR");
-	exit (EXIT_FAILURE);
-}
+	size_t			i;
+	unsigned char	*p1;
+	unsigned char	*p2;
 
-void	wrong_extension(void)
-{
-	ft_putstr_fd("\033[31mError: Bad arguments extension\n", 2);
-	ft_putstr_fd("Like : ./so_long map.ber\n", 1);
-	exit (EXIT_FAILURE);
+	i = 0;
+	p1 = (unsigned char *)s1;
+	p2 = (unsigned char *)s2;
+	if (s1[i] == '\n' && s2[i] == '\0')
+		return (0);
+	while ((p1[i] == p2[i]) && (i < n - 1) && p1[i] && p2[i])
+	{
+		i++;
+	}
+	return (p1[i] - p2[i]);
 }

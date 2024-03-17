@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_split_up.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 11:42:46 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/11 00:53:02 by zqouri           ###   ########.fr       */
+/*   Created: 2024/03/13 16:25:51 by zqouri            #+#    #+#             */
+/*   Updated: 2024/03/15 20:24:31 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
-void	ft_free(char **tab)
+void	ft_up_free(char **tab)
 {
 	int	i;
 
@@ -25,7 +25,7 @@ void	ft_free(char **tab)
 	free(tab);
 }
 
-int	ft_count_word(char *s, char c)
+int	ft_up_count_word(char *s)
 {
 	int	i;
 	int	count;
@@ -34,17 +34,17 @@ int	ft_count_word(char *s, char c)
 	count = 0;
 	while (s[i])
 	{
-		while (s[i] == c)
+		while (s[i] == ' ' || s[i] == '\t')
 			i++;
 		if (s[i] != '\0')
 			count++;
-		while (s[i] && s[i] != c)
+		while (s[i] && (s[i] != ' ' && s[i] != '\t'))
 			i++;
 	}
 	return (count);
 }
 
-char	*ft_word(char *s, char c, size_t *idx)
+char	*ft_up_word(char *s, size_t *idx)
 {
 	int		i;
 	int		word_len;
@@ -52,12 +52,12 @@ char	*ft_word(char *s, char c, size_t *idx)
 
 	i = 0;
 	word_len = 0;
-	while (s[*idx] && s[*idx] == c)
+	while (s[*idx] && (s[*idx] == ' ' || s[*idx] == '\t'))
 		(*idx)++;
 	if (s[*idx])
 	{
 		i = *idx;
-		while (s[*idx] && s[*idx] != c)
+		while (s[*idx] && (s[*idx] != ' ' && s[*idx] != '\t'))
 		{
 			(*idx)++;
 			word_len++;
@@ -67,13 +67,13 @@ char	*ft_word(char *s, char c, size_t *idx)
 	if (!tab)
 		return (NULL);
 	word_len = 0;
-	while (s[i] && s[i] != c)
+	while (s[i] && (s[i] != ' ' && s[i] != '\t'))
 		tab[word_len++] = s[i++];
 	tab[word_len] = '\0';
 	return (tab);
 }
 
-char	**ft_split(char *s, char c)
+char	**ft_split_up(char *s)
 {
 	int		i;
 	int		count;
@@ -83,16 +83,16 @@ char	**ft_split(char *s, char c)
 	if (!s)
 		return (NULL);
 	i = 0;
-	count = ft_count_word(s, c);
+	count = ft_up_count_word(s);
 	dest = (char **)malloc(sizeof(char *) * (count + 1));
 	if (!dest)
 		return (NULL);
 	idx = 0;
 	while (i < count)
 	{
-		dest[i] = ft_word(s, c, &idx);
+		dest[i] = ft_up_word(s, &idx);
 		if (dest[i] == NULL)
-			return (ft_free(dest), NULL);
+			return (ft_up_free(dest), NULL);
 		i++;
 	}
 	dest[i] = NULL;

@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/24 14:03:21 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/11 00:53:17 by zqouri           ###   ########.fr       */
+/*   Created: 2024/02/20 11:45:44 by zqouri            #+#    #+#             */
+/*   Updated: 2024/03/15 20:24:38 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strjoin_utils(char *s1, char *s2)
 {
-	size_t			i;
-	unsigned char	*p1;
-	unsigned char	*p2;
+	size_t	i;
+	size_t	j;
+	char	*dest;
+	size_t	size;
 
+	if (!s1 || !s2)
+		return (NULL);
 	i = 0;
-	p1 = (unsigned char *)s1;
-	p2 = (unsigned char *)s2;
-	if (s1[i] == '\n' && s2[i] == '\0')
-		return (0);
-	while ((p1[i] == p2[i]) && (i < n - 1) && p1[i] && p2[i])
+	j = 0;
+	size = ft_strlen(s1) + ft_strlen(s2);
+	dest = (char *)malloc(sizeof(char) * (size + 1));
+	if (!dest)
+		return (NULL);
+	while (s1[i] != '\0')
 	{
+		dest[i] = s1[i];
 		i++;
 	}
-	return (p1[i] - p2[i]);
+	while (s2[j] != '\0')
+		dest[i++] = s2[j++];
+	dest[i] = '\0';
+	return (dest);
 }

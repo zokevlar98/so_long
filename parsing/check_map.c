@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put_map.c                                          :+:      :+:    :+:   */
+/*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 00:44:43 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/14 21:04:21 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/17 17:18:28 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	**put_map(t_data *data, char **argv)
+void	put_map(t_data *data, char **argv)
 {
 	char	*tmp;
 
 	data->fd = open(argv[1], O_RDWR, 0666);
 	if (data->fd == -1)
-		error("ERROR: No such file\n");
+		error(data, "ERROR: No such file\n");
 	tmp = get_next_line(data->fd);
 	while (tmp)
 	{
@@ -28,24 +28,22 @@ char	**put_map(t_data *data, char **argv)
 		(data->hauteur)++;
 	}
 	if (data->hauteur == 0)
-		error("ERROR: Map Empty\n");
+		error(data, "ERROR: Map Empty\n");
 	data->map = ft_split(data->line, '\n');
 	if (data->map == NULL)
-		error("ERROR: Faile Malloc\n");
-	return (data->map);
+		error(data, "ERROR: Allcoation failed\n");
 }
 
 void	check_size(t_data *data)
 {
 	size_t	i;
-	size_t	len;
 
 	i = 0;
-	len = ft_strlen(data->map[0]);
+	data->largeur = (int)ft_strlen(data->map[0]);
 	while (data->map[i])
 	{
-		if (len != ft_strlen(data->map[i]))
-			error("Invalid map len!\n");
+		if (data->largeur != (int)ft_strlen(data->map[i]))
+			error(data, "Invalid map len!\n");
 		i++;
 	}
 }
@@ -60,7 +58,7 @@ void	check_border_up_down(t_data *data)
 	while (data->map[i][j])
 	{
 		if (data->map[i][j] != '1')
-			error("ERROR: No wall in border up\n");
+			error(data, "ERROR: No wall in border up\n");
 		j++;
 	}
 	while (data->map[i] != NULL)
@@ -70,7 +68,7 @@ void	check_border_up_down(t_data *data)
 	while (data->map[i][j])
 	{
 		if (data->map[i][j] != '1')
-			error("ERROR: No wall in border down\n");
+			error(data, "ERROR: No wall in border down\n");
 		j++;
 	}
 }
@@ -86,10 +84,10 @@ void	check_border_left_right(t_data *data)
 	{
 		j = 0;
 		if (data->map[i][j] != '1')
-			error("ERROR: No wall in border left\n");
+			error(data, "ERROR: No wall in border left\n");
 		j = ft_strlen(data->map[i]) - 1;
 		if (data->map[i][j] != '1')
-			error("ERROR: No wall in border right\n");
+			error(data, "ERROR: No wall in border right\n");
 		i++;
 	}
 }
@@ -111,7 +109,7 @@ void	check_characters(t_data *data)
 				 && ptr[i][j] != 'E' && ptr[i][j] != 'P')
 			{
 				ft_free(ptr);//5assni mnin neb4i ne5raj free struct kamelha
-				error("ERROR: Invalide Character\n");
+				error(data, "ERROR: Invalide Character\n");
 			}
 			j++;
 		}

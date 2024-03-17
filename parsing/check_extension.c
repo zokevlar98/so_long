@@ -6,21 +6,19 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 21:34:36 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/14 20:23:42 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/17 16:25:18 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
-void	check_paths(char *argv)
+void	check_file(t_data *data, char *argv)
 {
-	int	fd;
-	
-	fd = open(argv, O_RDWR, 0666);
-	if (fd == -1)
+	data->fd = open(argv, O_RDWR, 0666);
+	if (data->fd == -1)
 	{
-		close(fd);
-		error("ERROR: NO such Directory or file\n");
+		close(data->fd);
+		error(data, "ERROR: NO such Directory or file\n");
 	}
 	check_extension(argv);
 }
@@ -40,24 +38,24 @@ void	check_extension(char *argv)
 void	check_map_character(t_data *data)
 {
 	int	i;
-	int	c;
-	int	e;
-	int	p;
+	int	j;
 
 	i = 0;
-	c = 0;
-	e = 0;
-	p = 0;
 	while (data->map[i])
 	{
-		if (ft_strchr(data->map[i], 'C'))
-			c++;
-		if (ft_strchr(data->map[i], 'E'))
-			e++;
-		if (ft_strchr(data->map[i], 'P'))
-			p++;
+		j = 0;
+		while (data->map[i][j])
+		{
+			if (data->map[i][j] == 'C')
+				(data->C)++;
+			if (data->map[i][j] == 'E')
+				(data->E)++;
+			if (data->map[i][j] == 'P')
+				(data->P)++;
+			j++;
+		}
 		i++;
 	}
-	if (p != 1 || e != 1 || c < 1)
-		error("ERROR: Map Invalid\n");
+	if (data->P != 1 || data->E != 1 || data->C < 1)
+		error(data, "ERROR: Map Invalid\n");
 }

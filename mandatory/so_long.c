@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 12:10:54 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/14 21:04:51 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/17 18:07:16 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,45 +21,41 @@ void	init_data(t_data *data)
 	data->largeur = 0;
 	data->x = 0;
 	data->y = 0;
+	data->P = 0;
+	data->C = 0;
+	data->E = 0;
 	data->line = NULL;
 	data->map = NULL;
 }
+
+//void	ff(void)
+//{
+//	system("leaks so_long");
+//}
 
 int	main(int argc, char *argv[])
 {
 	t_data	*data;
 
+	//atexit(ff);
 	data = malloc(sizeof(t_data));
 	if (!data)
-		error("ERROR: Allcoation failed\n");
-	init_data(data);
+		error(data, "ERROR: Allcoation failed\n");
 	if (argc == 2)
 	{
-		check_paths(argv[1]);
-		data->map = put_map(data, argv);
-		check_size(data);
-		check_border_up_down(data);
-		check_border_left_right(data);
-		check_characters(data);
-		check_map_character(data);
+		init_data(data);
+		check_map_valid(data, argv);
+		int	i = 0;
+		while (data->map_copy[i] != NULL)
+		{
+			printf("%s\n", data->map_copy[i]);
+			i++;
+		}
+		// For test leaks :
+		//clear_data(data);
+		//free(data);
 	}
 	else
 		usage();
 	return (0);
 }
-
-//int	main(void)
-//{
-//	void	*mlx;
-//	void	*mlx_win;
-
-//	mlx = mlx_init();
-//	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
-//	mlx_loop(mlx);
-//}
-		//int	i = 0;
-		//while (data->map[i] != NULL)
-		//{
-		//	printf("%s\n", data->map[i]);
-		//	i++;
-		//}

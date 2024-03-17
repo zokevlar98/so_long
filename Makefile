@@ -1,21 +1,23 @@
 NAME = so_long
 
-CFLAGS = -Wall -Wextra -Werror -I ./includes
+CFLAGS = -Wall -Wextra -Werror -I ./includes 
 
 RM = rm -rf
 
 MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit
 
-SRCS =	parsing/ft_putstr_fd.c		\
-		parsing/ft_split.c			\
-		parsing/ft_strjoin_utils.c	\
-		parsing/ft_strncmp.c		\
-		parsing/check_extension.c	\
-		parsing/put_map.c			\
-		parsing/ft_split_up.c		\
+SRCS =	mandatory/so_long.c			\
 		mandatory/error.c			\
 		mandatory/usage.c			\
-		mandatory/so_long.c			\
+		parsing/check_extension.c	\
+		parsing/check_map.c			\
+		parsing/clear_data.c		\
+		parsing/check_map_valid.c	\
+		utils/ft_putstr_fd.c		\
+		utils/ft_split.c			\
+		utils/ft_strjoin_utils.c	\
+		utils/ft_strncmp.c			\
+		utils/ft_split_up.c			\
 		gnl/get_next_line.c			\
 		gnl/get_next_line_utils.c	\
 
