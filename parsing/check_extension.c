@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 21:34:36 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/17 16:25:18 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/17 20:51:24 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	check_extension(char *argv)
 		wrong_extension();
 }
 
-void	check_map_character(t_data *data)
+void	count_map_character(t_data *data)
 {
 	int	i;
 	int	j;

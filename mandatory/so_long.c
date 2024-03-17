@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 12:10:54 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/17 18:07:16 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/17 21:30:13 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,16 @@ void	init_data(t_data *data)
 	data->map = NULL;
 }
 
-//void	ff(void)
-//{
-//	system("leaks so_long");
-//}
+// void	ff(void)
+// {
+// 	system("leaks so_long");
+// }
 
 int	main(int argc, char *argv[])
 {
 	t_data	*data;
 
-	//atexit(ff);
+	// atexit(ff);
 	data = malloc(sizeof(t_data));
 	if (!data)
 		error(data, "ERROR: Allcoation failed\n");
@@ -45,17 +45,18 @@ int	main(int argc, char *argv[])
 	{
 		init_data(data);
 		check_map_valid(data, argv);
-		int	i = 0;
-		while (data->map_copy[i] != NULL)
-		{
-			printf("%s\n", data->map_copy[i]);
-			i++;
-		}
 		// For test leaks :
-		//clear_data(data);
-		//free(data);
+		// clear_data(data);
+		// free(data);
 	}
 	else
 		usage();
 	return (0);
 }
+
+		// int	i = 0;
+		// while (data->map_copy[i] != NULL)
+		// {
+		// 	printf("%s\n", data->map_copy[i]);
+		// 	i++;
+		// }

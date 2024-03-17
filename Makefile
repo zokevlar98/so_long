@@ -16,6 +16,7 @@ SRCS =	mandatory/so_long.c			\
 		utils/ft_putstr_fd.c		\
 		utils/ft_split.c			\
 		utils/ft_strjoin_utils.c	\
+		utils/flood_fill.c			\
 		utils/ft_strncmp.c			\
 		utils/ft_split_up.c			\
 		gnl/get_next_line.c			\
