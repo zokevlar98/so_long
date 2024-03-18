@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 17:48:36 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/17 18:07:18 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/18 01:19:41 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ void	clear_data(t_data *data)
 		free_map(data->map);
 	if (data->map_copy)
 		free_map(data->map_copy);
+	
 	//zid 3liha fermer window et free mlx_ptr ...
 }

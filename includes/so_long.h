@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 23:25:41 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/17 20:51:37 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/17 21:59:49 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct s_data
 void	usage(void);
 void	error(t_data *data, char *str);
 void	wrong_extension(void);
+void	init_data(t_data *data);
 
 //PARSING :
 void	check_file(t_data *data, char *argv);
@@ -81,5 +82,6 @@ void	ft_free(char **tab);
 void	check_characters(t_data *data);
 char	**ft_split(char *s, char c);
 void    flood_fill(t_data *data);
-//size_t	ft_strlen(char *str);
+//Game_play :
+void    game_play(t_data *data);
 #endif

@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 12:10:54 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/17 21:30:13 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/17 22:08:50 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,14 @@ int	main(int argc, char *argv[])
 	t_data	*data;
 
 	// atexit(ff);
-	data = malloc(sizeof(t_data));
-	if (!data)
-		error(data, "ERROR: Allcoation failed\n");
 	if (argc == 2)
 	{
+		data = malloc(sizeof(t_data));
+		if (!data)
+			error(data, "ERROR: Allcoation failed\n");
 		init_data(data);
 		check_map_valid(data, argv);
+		game_play(data);
 		// For test leaks :
 		// clear_data(data);
 		// free(data);
