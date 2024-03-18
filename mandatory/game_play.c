@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:53:53 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/18 02:55:00 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/18 20:33:39 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,15 @@ void    init_imgs(t_data *data)
 void    put_imgs_to_window(t_data *data, int x, int y)
 {
     if (data->map[x][y] == 'P')
-        mlx_put_image_to_window(data->mlx_p, data->win_p, data->img.player, x * 1000, y * 1000);
+        mlx_put_image_to_window(data->mlx_p, data->win_p, data->img.player, x * 42, y * 42);
     else if (data->map[x][y] == 'C')
-        mlx_put_image_to_window(data->mlx_p, data->win_p, data->img.coin, x * 1000, y * 1000);
+        mlx_put_image_to_window(data->mlx_p, data->win_p, data->img.coin, x * 42, y * 42);
     else if (data->map[x][y] == 'E')
-        mlx_put_image_to_window(data->mlx_p, data->win_p, data->img.door, x * 1000, y * 1000);
+        mlx_put_image_to_window(data->mlx_p, data->win_p, data->img.door, x * 42, y * 42);
     else if (data->map[x][y] == '0')
-        mlx_put_image_to_window(data->mlx_p, data->win_p, data->img.road, x * 1000, y * 1000);
+        mlx_put_image_to_window(data->mlx_p, data->win_p, data->img.road, x * 42, y * 42);
     else if (data->map[x][y] == '1')
-        mlx_put_image_to_window(data->mlx_p, data->win_p, data->img.wall, x * 1000, y * 1000);
+        mlx_put_image_to_window(data->mlx_p, data->win_p, data->img.wall, x * 42, y * 42);
 }
 
 void    display_game(t_data *data)
@@ -58,7 +58,7 @@ void    display_game(t_data *data)
     {
         j = -1;
         while (data->map[i][++j])
-            put_imgs_to_window(data, j, i);
+            put_imgs_to_window(data, i, j);
         i++;
     }
 }
@@ -69,7 +69,7 @@ void    game_play(t_data *data)
     if (data->mlx_p == NULL)
         error(data, "ERROR: mlx_init failed\n");
     init_imgs(data);
-    data->win_p = mlx_new_window(data->mlx_p, data->largeur * 32, data->hauteur * 32, "so_long");
+    data->win_p = mlx_new_window(data->mlx_p, (data->largeur) * 12, (data->hauteur) * 64, "so_long");
     if (data->win_p == NULL)
         error(data, "ERROR: mlx_new_window failed\n");
     display_game(data);
