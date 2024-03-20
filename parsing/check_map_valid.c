@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 16:04:38 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/20 04:38:42 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/20 06:20:44 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void    check_map_copy(t_data *data)
         while (data->map_copy[i][j])
         {
             if (data->map_copy[i][j] == 'C' || data->map_copy[i][j] == 'E')
-                error(data, "ERROR: Map is not valid\n");
+                error(data, "ERROR: Map is not valid \n");
             j++;
         }
         i++;
@@ -80,4 +80,5 @@ void	check_map_valid(t_data *data, char **argv)
     copy_map(data);
     flood_fill(data);
     check_map_copy(data);
+    // serche_player_position(data);
 }

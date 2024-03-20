@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 12:10:54 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/20 05:25:32 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/20 06:40:45 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	init_data(t_data *data)
 	data->P = 0;
 	data->C = 0;
 	data->E = 0;
+	data->move = 0;
 	data->line = NULL;
 	data->map = NULL;
 	data->map_copy = NULL;

@@ -6,12 +6,17 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 23:25:41 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/20 04:33:55 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/20 06:54:43 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
+
+#define W 13
+#define A 0
+#define S 1
+#define D 2
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -45,6 +50,7 @@ typedef struct s_data
 	int		P;
 	int		C;
 	int		E;
+	int		move;
 	char	*line;
 	char	**map;
 	char	**map_copy;
@@ -76,7 +82,9 @@ void	clear_data(t_data *data);
 
 //Fonction utils :
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *str, int fd);
+void	ft_putnbr_fd(int nbr, int fd);
 char	**ft_split_up(char *s);
 void	ft_free(char **tab);
 void	check_characters(t_data *data);

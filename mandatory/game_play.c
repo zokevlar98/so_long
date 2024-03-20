@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:53:53 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/20 05:27:59 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/20 07:08:47 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,62 @@ void    display_game(t_data *data)
     }
 }
 
-// int key_hook(int key_code, t_data *data)
-// {
-//     if (key_code == 53)
-//         clear_data(data);
-//     if (key_code == 2 || key_code == 0 || key_code == 1 || key_code == 13)
-//         move_player(data, key_code);
-// }
+void    display_moves(t_data *data)
+{
+    ft_putstr_fd("Moves : ", 1);
+    (data->move)++;
+    ft_putnbr_fd(data->move, 1);
+    ft_putchar_fd('\n', 1);
+}
+
+void    close(t_data *data)
+{
+    
+}
+
+void    move_player(t_data *data, int key_code)
+{
+    int x;
+    int y;
+
+    x = data->x;
+    y = data->y;
+    if (key_code == W)
+        x--;
+    if (key_code == A)
+        y--;
+    if (key_code == S)
+        x++;
+    if (key_code == D)
+        y++;
+    if (data->map[x][y] == '0' || data->map[x][y] == 'C')
+    {
+        data->map[data->x][data->y] = '0';
+        data->x = x;
+        data->y = y;
+        if (data->map[x][y] == 'C')
+            (data->C)--;
+        data->map[x][y] = 'P';
+        mlx_clear_window(data->mlx_p, data->win_p);
+        display_game(data);
+        display_moves(data);
+    }
+    if (data->C == 0 && data->map[x][y] == 'E')
+    {
+        clear_data(data);
+        printf("You win\n");
+        exit(EXIT_SUCCESS);
+    }
+}
+
+int key_hook(int key_code, t_data *data)
+{
+    if (key_code == 53)
+        clear_data(data);
+    if (key_code == W || key_code == A || key_code == S || key_code == D)
+        move_player(data, key_code);
+    return (0);
+}
 
 void    game_play(t_data *data)
 {
@@ -81,6 +130,6 @@ void    game_play(t_data *data)
     if (data->win_p == NULL)
         error(data, "ERROR: mlx_new_window failed\n");
     display_game(data);
-    // mlx_key_hook(data->win_p, key_hook, data);
+    mlx_key_hook(data->win_p, key_hook, data);
     mlx_loop(data->mlx_p);
 }
