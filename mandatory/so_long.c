@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 12:10:54 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/18 19:52:53 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/20 05:25:32 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	init_data(t_data *data)
 	data->mlx_p = NULL;
 	data->win_p = NULL;
 	data->fd = 0;
-	data->hauteur = 0;
-	data->largeur = 0;
+	data->width = 0;
+	data->height = 0;
 	data->x = 0;
 	data->y = 0;
 	data->P = 0;
@@ -26,6 +26,7 @@ void	init_data(t_data *data)
 	data->E = 0;
 	data->line = NULL;
 	data->map = NULL;
+	data->map_copy = NULL;
 }
 
 // void	ff(void)
@@ -56,8 +57,8 @@ int	main(int argc, char *argv[])
 }
 
 		// int	i = 0;
-		// while (data->map_copy[i] != NULL)
+		// while (data->map[i] != NULL)
 		// {
-		// 	printf("%s\n", data->map_copy[i]);
+		// 	printf("%s\n", data->map[i]);
 		// 	i++;
 		// }

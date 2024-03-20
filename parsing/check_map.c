@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 00:44:43 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/17 17:18:28 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/20 05:27:03 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	put_map(t_data *data, char **argv)
 		data->line = ft_strjoin(data->line, tmp);
 		free(tmp);
 		tmp = get_next_line(data->fd);
-		(data->hauteur)++;
+		(data->height)++;
 	}
-	if (data->hauteur == 0)
+	if (data->height == 0)
 		error(data, "ERROR: Map Empty\n");
 	data->map = ft_split(data->line, '\n');
 	if (data->map == NULL)
@@ -39,10 +39,10 @@ void	check_size(t_data *data)
 	size_t	i;
 
 	i = 0;
-	data->largeur = (int)ft_strlen(data->map[0]);
+	data->width = (int)ft_strlen(data->map[0]);
 	while (data->map[i])
 	{
-		if (data->largeur != (int)ft_strlen(data->map[i]))
+		if (data->width != (int)ft_strlen(data->map[i]))
 			error(data, "Invalid map len!\n");
 		i++;
 	}
@@ -79,7 +79,6 @@ void	check_border_left_right(t_data *data)
 	size_t	j;
 
 	i = 0;
-	data->largeur = (int)ft_strlen(data->map[i]) - 1;
 	while (data->map[i])
 	{
 		j = 0;

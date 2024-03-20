@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 16:04:38 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/17 21:19:45 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/20 04:38:42 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void    copy_map(t_data *data)
     int i;
 
     i = -1;
-    data->map_copy = malloc(sizeof(char *) * (data->hauteur + 1));
+    data->map_copy = malloc(sizeof(char *) * (data->height + 1));
     if (data->map_copy == NULL)
         error(data, "ERROR: Allcoation failed\n");
     while (data->map[++i])

@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 23:25:41 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/17 21:59:49 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/20 04:33:55 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ typedef struct s_data
 	void	*mlx_p;
 	void	*win_p;
 	int		fd;
-	int		hauteur;
-	int		largeur;
+	int		width;
+	int		height;
 	int		x;
 	int		y;
 	int		P;

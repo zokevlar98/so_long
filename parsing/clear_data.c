@@ -6,13 +6,13 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 17:48:36 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/18 01:19:41 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/20 01:37:17 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	free_map(char	**map)
+void	free_map(char **map)
 {
 	int	i;
 
@@ -27,6 +27,20 @@ void	free_map(char	**map)
 	map = NULL;
 }
 
+void	destory_image(t_data *data)
+{
+	if (data->img.player)
+		mlx_destroy_image(data->mlx_p, data->img.player);
+	if (data->img.coin)
+		mlx_destroy_image(data->mlx_p, data->img.coin);
+	if (data->img.door)
+		mlx_destroy_image(data->mlx_p, data->img.door);
+	if (data->img.road)
+		mlx_destroy_image(data->mlx_p, data->img.road);
+	if (data->img.wall)
+		mlx_destroy_image(data->mlx_p, data->img.wall);
+}
+
 void	clear_data(t_data *data)
 {
 	if (data->line)
@@ -35,6 +49,15 @@ void	clear_data(t_data *data)
 		free_map(data->map);
 	if (data->map_copy)
 		free_map(data->map_copy);
+	if (data->mlx_p)
+	{
+		destory_image(data);
+		if (data->win_p)
+		{
+			mlx_clear_window(data->mlx_p, data->win_p);
+			mlx_destroy_window(data->mlx_p, data->win_p);
+		}
+	}
 	
 	//zid 3liha fermer window et free mlx_ptr ...
 }
