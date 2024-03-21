@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 21:34:36 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/17 20:51:24 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/21 18:48:41 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,15 @@ void	count_map_character(t_data *data)
 		while (data->map[i][j])
 		{
 			if (data->map[i][j] == 'C')
-				(data->C)++;
+				(data->c)++;
 			if (data->map[i][j] == 'E')
-				(data->E)++;
+				(data->e)++;
 			if (data->map[i][j] == 'P')
-				(data->P)++;
+				(data->p)++;
 			j++;
 		}
 		i++;
 	}
-	if (data->P != 1 || data->E != 1 || data->C < 1)
+	if (data->p != 1 || data->e!= 1 || data->c < 1)
 		error(data, "ERROR: Map Invalid\n");
 }

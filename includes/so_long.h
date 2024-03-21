@@ -6,17 +6,18 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 23:25:41 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/20 06:54:43 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/21 18:51:11 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#define W 13
-#define A 0
-#define S 1
-#define D 2
+# define W 13
+# define A 0
+# define S 1
+# define D 2
+# define BOUTON_CLOSE 17
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -47,21 +48,23 @@ typedef struct s_data
 	int		height;
 	int		x;
 	int		y;
-	int		P;
-	int		C;
-	int		E;
+	int		p;
+	int		c;
+	int		e;
 	int		move;
 	char	*line;
 	char	**map;
 	char	**map_copy;
 }	t_data;
 
-
 //Mandatory :
 void	usage(void);
 void	error(t_data *data, char *str);
 void	wrong_extension(void);
 void	init_data(t_data *data);
+void	init_imgs(t_data *data);
+void	put_imgs_to_window(t_data *data, int x, int y);
+void	display_game(t_data *data);
 
 //PARSING :
 void	check_file(t_data *data, char *argv);
@@ -72,12 +75,13 @@ void	check_border_up_down(t_data *data);
 void	check_border_left_right(t_data *data);
 void	count_map_character(t_data *data);
 void	check_map_valid(t_data *data, char **argv);
-void    copy_map(t_data *data);
-void    serche_player_position(t_data *data);
-void    flood_fill(t_data *data);
+void	copy_map(t_data *data);
+void	serche_player_position(t_data *data);
+void	flood_fill(t_data *data);
 void	check_map_copy(t_data *data);
 //mazal 5asse parsing
 void	free_map(char **map);
+int		key_hook_mouse(t_data *data);
 void	clear_data(t_data *data);
 
 //Fonction utils :
@@ -89,7 +93,7 @@ char	**ft_split_up(char *s);
 void	ft_free(char **tab);
 void	check_characters(t_data *data);
 char	**ft_split(char *s, char c);
-void    flood_fill(t_data *data);
+void	flood_fill(t_data *data);
 //Game_play :
-void    game_play(t_data *data);
+void	game_play(t_data *data);
 #endif

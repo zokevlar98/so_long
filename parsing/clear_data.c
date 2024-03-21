@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 17:48:36 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/20 01:37:17 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/21 18:08:30 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,11 @@ void	clear_data(t_data *data)
 			mlx_destroy_window(data->mlx_p, data->win_p);
 		}
 	}
-	
-	//zid 3liha fermer window et free mlx_ptr ...
+}
+
+int	key_hook_mouse(t_data *data)
+{
+	clear_data(data);
+	ft_putstr_fd("OUT\n", STDOUT_FILENO);
+	exit(EXIT_SUCCESS);
 }

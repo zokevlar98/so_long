@@ -8,6 +8,7 @@ MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit
 
 SRCS =	mandatory/so_long.c			\
 		mandatory/game_play.c		\
+		mandatory/display_game.c	\
 		mandatory/error.c			\
 		mandatory/usage.c			\
 		parsing/check_extension.c	\

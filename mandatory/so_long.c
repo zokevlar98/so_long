@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 12:10:54 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/20 06:40:45 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/21 18:48:03 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	init_data(t_data *data)
 	data->height = 0;
 	data->x = 0;
 	data->y = 0;
-	data->P = 0;
-	data->C = 0;
-	data->E = 0;
+	data->p = 0;
+	data->c = 0;
+	data->e = 0;
 	data->move = 0;
 	data->line = NULL;
 	data->map = NULL;
