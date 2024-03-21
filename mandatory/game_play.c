@@ -6,13 +6,13 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:53:53 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/21 18:47:25 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/21 20:25:56 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void    display_moves(t_data *data)
+void	display_moves(t_data *data)
 {
 	ft_putstr_fd("Moves : ", STDOUT_FILENO);
 	(data->move)++;
@@ -69,7 +69,7 @@ void	move_player(t_data *data, int key_code)
 		game_over(data, 1);
 }
 
-int key_hook(int key_code, t_data *data)
+int	key_hook(int key_code, t_data *data)
 {
 	if (key_code == 53)
 		game_over(data, 0);
@@ -78,13 +78,14 @@ int key_hook(int key_code, t_data *data)
 	return (0);
 }
 
-void    game_play(t_data *data)
+void	game_play(t_data *data)
 {
 	data->mlx_p = mlx_init();
 	if (data->mlx_p == NULL)
 		error(data, "ERROR: mlx_init failed\n");
 	init_imgs(data);
-	data->win_p = mlx_new_window(data->mlx_p, (data->width) * 64, (data->height) * 64, "so_long");
+	data->win_p = mlx_new_window(data->mlx_p, (data->width) * 64, (data->height)
+			* 64, "so_long");
 	if (data->win_p == NULL)
 		error(data, "ERROR: mlx_new_window failed\n");
 	display_game(data);

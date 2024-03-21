@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 00:44:43 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/21 18:49:11 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/21 20:31:17 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void	check_characters(t_data *data)
 		while (ptr[i][j])
 		{
 			if (ptr[i][j] != '0' && ptr[i][j] != '1' && ptr[i][j] != 'C'
-				 && ptr[i][j] != 'E' && ptr[i][j] != 'P')
+				&& ptr[i][j] != 'E' && ptr[i][j] != 'P')
 			{
 				ft_free(ptr);
 				error(data, "ERROR: Invalide Character\n");

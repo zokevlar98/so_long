@@ -6,27 +6,25 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 20:42:24 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/20 06:18:49 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/21 20:32:18 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void    dfs(t_data *data, int i, int j)
+void	dfs(t_data *data, int i, int j)
 {
-    if (i < 0 || j < 0 || i >= data->height || j >= data->width
-        || data->map_copy[i][j] == '1' || data->map_copy[i][j] == 'V')
-        return ;
-    // if (data->map_copy[i][j] == 'C')
-    //     data->C--;
-    data->map_copy[i][j] = 'V';
-    dfs(data, i - 1, j);
-    dfs(data, i + 1, j);
-    dfs(data, i, j - 1);
-    dfs(data, i, j + 1);
+	if (i < 0 || j < 0 || i >= data->height || j >= data->width
+		|| data->map_copy[i][j] == '1' || data->map_copy[i][j] == 'V')
+		return ;
+	data->map_copy[i][j] = 'V';
+	dfs(data, i - 1, j);
+	dfs(data, i + 1, j);
+	dfs(data, i, j - 1);
+	dfs(data, i, j + 1);
 }
 
-void    flood_fill(t_data *data)
+void	flood_fill(t_data *data)
 {
-    dfs(data, data->x, data->y);
+	dfs(data, data->x, data->y);
 }

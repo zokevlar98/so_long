@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 21:34:36 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/21 18:48:41 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/21 20:28:15 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ void	count_map_character(t_data *data)
 		}
 		i++;
 	}
-	if (data->p != 1 || data->e!= 1 || data->c < 1)
+	if (data->p != 1 || data->e != 1 || data->c < 1)
 		error(data, "ERROR: Map Invalid\n");
 }
