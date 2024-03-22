@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 23:25:41 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/21 18:51:11 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/22 21:51:17 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	check_border_left_right(t_data *data);
 void	count_map_character(t_data *data);
 void	check_map_valid(t_data *data, char **argv);
 void	copy_map(t_data *data);
-void	serche_player_position(t_data *data);
+void	search_player_position(t_data *data);
 void	flood_fill(t_data *data);
 void	check_map_copy(t_data *data);
 //mazal 5asse parsing
@@ -96,4 +96,5 @@ char	**ft_split(char *s, char c);
 void	flood_fill(t_data *data);
 //Game_play :
 void	game_play(t_data *data);
+void	print_map(char **map);
 #endif

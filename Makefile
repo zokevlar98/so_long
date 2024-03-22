@@ -11,6 +11,7 @@ SRCS =	mandatory/so_long.c			\
 		mandatory/display_game.c	\
 		mandatory/error.c			\
 		mandatory/usage.c			\
+		mandatory/print_map.c		\
 		parsing/check_extension.c	\
 		parsing/check_map.c			\
 		parsing/clear_data.c		\
