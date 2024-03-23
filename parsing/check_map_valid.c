@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 16:04:38 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/22 21:50:11 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/23 00:10:05 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,5 @@ void	check_map_valid(t_data *data, char **argv)
 	search_player_position(data);
 	copy_map(data);
 	flood_fill(data);
-	// for(int i = 0; data->map_copy[i]; i++)
-	// 	printf("%s\n", data->map_copy[i]);
 	check_map_copy(data);
-	// search_player_position(data);
 }

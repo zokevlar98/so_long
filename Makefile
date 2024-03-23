@@ -1,6 +1,7 @@
 NAME = so_long
 
-CFLAGS = -Wall -Wextra -I ./includes 
+CFLAGS = -Wall -Wextra -I ./includes -g
+ # -fsanitize=address
 
 RM = rm -rf
 
@@ -11,7 +12,6 @@ SRCS =	mandatory/so_long.c			\
 		mandatory/display_game.c	\
 		mandatory/error.c			\
 		mandatory/usage.c			\
-		mandatory/print_map.c		\
 		parsing/check_extension.c	\
 		parsing/check_map.c			\
 		parsing/clear_data.c		\
@@ -30,7 +30,7 @@ OBJS = $(SRCS:.c=.o)
 all : $(NAME)
 
 $(NAME): $(OBJS)
-	cc $(MLX_FLAGS) $(OBJS) -o $(NAME)
+	cc $(MLX_FLAGS) $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o:%.c includes/so_long.h
 	cc $(CFLAGS) -Imlx -c $< -o $@

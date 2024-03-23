@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:53:53 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/21 20:25:56 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/23 00:13:33 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,8 @@ void	game_over(t_data *data, int win)
 		error(data, "ERROR: game_over failed\n");
 }
 
-void	move_player(t_data *data, int key_code)
+void	move_player(t_data *data, int key_code, int x, int y)
 {
-	int	x;
-	int	y;
-
 	x = data->x;
 	y = data->y;
 	if (key_code == W)
@@ -74,7 +71,7 @@ int	key_hook(int key_code, t_data *data)
 	if (key_code == 53)
 		game_over(data, 0);
 	if (key_code == W || key_code == A || key_code == S || key_code == D)
-		move_player(data, key_code);
+		move_player(data, key_code, 0, 0);
 	return (0);
 }
 

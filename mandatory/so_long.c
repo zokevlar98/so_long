@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 12:10:54 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/22 21:39:28 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/23 02:31:00 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,16 @@ void	init_data(t_data *data)
 	data->map_copy = NULL;
 }
 
+// void 	ff(void)
+// {
+// 	system("leaks so_long");
+// }
+
 int	main(int argc, char *argv[])
 {
 	t_data	*data;
 
+	// atexit(ff);
 	if (argc == 2)
 	{
 		data = malloc(sizeof(t_data));
@@ -42,6 +48,10 @@ int	main(int argc, char *argv[])
 		init_data(data);
 		check_map_valid(data, argv);
 		game_play(data);
+		if (data) {
+			clear_data(data);
+			free(data);
+		}
 	}
 	else
 		usage();

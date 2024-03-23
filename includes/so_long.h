@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 23:25:41 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/22 21:51:17 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/23 00:07:06 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,4 @@ char	**ft_split(char *s, char c);
 void	flood_fill(t_data *data);
 //Game_play :
 void	game_play(t_data *data);
-void	print_map(char **map);
 #endif
