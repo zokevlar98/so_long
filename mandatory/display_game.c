@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 17:02:09 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/28 19:52:08 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/28 23:23:23 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,23 @@ void	init_imgs(t_data *data)
 	data->img.player = mlx_xpm_file_to_image(data->mlx_p, "./textures/player.xpm",
 			&width, &height);
 	if (!(data->img.player))
-		error(data, "ERROR: mlx_xpm_file_to_image failed\n");
+		error(data, "ERROR: Upload textures failed\n");
 	data->img.coin = mlx_xpm_file_to_image(data->mlx_p, "./textures/coin.xpm",
 			&width, &height);
 	if (!(data->img.coin))
-		error(data, "ERROR: mlx_xpm_file_to_image failed\n");
+		error(data, "ERROR: Upload textures failed\n");
 	data->img.door = mlx_xpm_file_to_image(data->mlx_p, "./textures/door.xpm",
 			&width, &height);
 	if (!(data->img.door))
-		error(data, "ERROR: mlx_xpm_file_to_image failed\n");
+		error(data, "ERROR: Upload textures failed\n");
 	data->img.road = mlx_xpm_file_to_image(data->mlx_p, "./textures/road.xpm",
 			&width, &height);
 	if (!(data->img.road))
-		error(data, "ERROR: mlx_xpm_file_to_image failed\n");
+		error(data, "ERROR: Upload textures failed\n");
 	data->img.wall = mlx_xpm_file_to_image(data->mlx_p, "./textures/wall.xpm",
 			&width, &height);
 	if (!(data->img.wall))
-		error(data, "ERROR: mlx_xpm_file_to_image failed\n");
+		error(data, "ERROR: Upload textures failed\n");
 }
 
 void	put_imgs_to_window(t_data *data, int x, int y)

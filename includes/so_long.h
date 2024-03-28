@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 23:25:41 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/28 14:32:22 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/28 23:24:46 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 # include <math.h>
 # include <mlx.h>
 # include "../gnl/get_next_line.h"
-
+// # define malloc(x) NULL
 typedef struct s_img
 {
 	void	*player;
@@ -94,4 +94,5 @@ void	ft_free(char **tab);
 char	**ft_split(char *s, char c);
 void	flood_fill(t_data *data);
 void	game_play(t_data *data);
+void	check_imgs(t_data *data);
 #endif

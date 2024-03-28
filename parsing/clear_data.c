@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 17:48:36 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/28 14:16:36 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/28 23:13:52 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,22 @@ void	destory_image(t_data *data)
 
 void	clear_data(t_data *data)
 {
-	if (data->line)
-		free(data->line);
-	if (data->map)
-		free_map(data->map);
-	if (data->map_copy)
-		free_map(data->map_copy);
-	if (data->mlx_p)
+	if (data != NULL)
 	{
-		destory_image(data);
-		if (data->win_p)
+		if (data->line)
+			free(data->line);
+		if (data->map)
+			free_map(data->map);
+		if (data->map_copy)
+			free_map(data->map_copy);
+		if (data->mlx_p)
 		{
-			mlx_clear_window(data->mlx_p, data->win_p);
-			mlx_destroy_window(data->mlx_p, data->win_p);
+			if (data->win_p)
+			{
+				destory_image(data);
+				mlx_clear_window(data->mlx_p, data->win_p);
+				mlx_destroy_window(data->mlx_p, data->win_p);
+			}
 		}
 	}
 }

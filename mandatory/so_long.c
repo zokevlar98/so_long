@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 12:10:54 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/27 05:58:50 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/28 23:15:18 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,26 @@ void	init_data(t_data *data)
 	data->map_copy = NULL;
 }
 
+// void	ff(void)
+// {
+// 	system("leaks so_long");
+// }
+
 int	main(int argc, char *argv[])
 {
 	t_data	*data;
 
+	// atexit(ff);
 	if (argc == 2)
 	{
-		data = malloc(sizeof(t_data));
+		data = (t_data *)malloc(sizeof(t_data));
 		if (!data)
+		{
 			error(data, "ERROR: Allcoation failed\n");
+			// ft_putstr_fd("\033[31m", 2);
+			// ft_putstr_fd("ERROR: Allcoation failed\n", 2);
+			// exit (EXIT_FAILURE);
+		}
 		init_data(data);
 		check_map_valid(data, argv);
 		game_play(data);

@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:53:53 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/28 14:19:48 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/28 23:00:01 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,10 @@ void	move_player(t_data *data, int key_code, int x, int y)
 		display_moves(data);
 	}
 	if (data->c == 0 && data->map[x][y] == 'E')
+	{
+		display_moves(data);
 		game_over(data, 1);
+	}
 }
 
 int	key_hook(int key_code, t_data *data)

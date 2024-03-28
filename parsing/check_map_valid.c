@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 16:04:38 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/27 17:09:24 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/28 22:44:16 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ void	check_map_valid(t_data *data, char **argv)
 	check_file(data, argv[1]);
 	put_map(data, argv);
 	check_size(data);
+	if (data->height > 22 || data->width > 40)
+		error(data, "ERROR: Map is too big!!\n");
 	check_border_up_down(data);
 	check_border_left_right(data);
 	check_characters(data);
