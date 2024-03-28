@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 23:25:41 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/23 00:07:06 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/28 14:32:22 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 # define A 0
 # define S 1
 # define D 2
+# define UP 126
+# define LEFT 123
+# define DOWN 125
+# define RIGHT 124
 # define BOUTON_CLOSE 17
 
 # include <unistd.h>
@@ -57,7 +61,6 @@ typedef struct s_data
 	char	**map_copy;
 }	t_data;
 
-//Mandatory :
 void	usage(void);
 void	error(t_data *data, char *str);
 void	wrong_extension(void);
@@ -65,8 +68,7 @@ void	init_data(t_data *data);
 void	init_imgs(t_data *data);
 void	put_imgs_to_window(t_data *data, int x, int y);
 void	display_game(t_data *data);
-
-//PARSING :
+int		key_hook(int key_code, t_data *data);
 void	check_file(t_data *data, char *argv);
 void	check_extension(char *argv);
 void	put_map(t_data *data, char **argv);
@@ -79,21 +81,17 @@ void	copy_map(t_data *data);
 void	search_player_position(t_data *data);
 void	flood_fill(t_data *data);
 void	check_map_copy(t_data *data);
-//mazal 5asse parsing
+void	check_characters(t_data *data);
 void	free_map(char **map);
 int		key_hook_mouse(t_data *data);
 void	clear_data(t_data *data);
-
-//Fonction utils :
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *str, int fd);
 void	ft_putnbr_fd(int nbr, int fd);
 char	**ft_split_up(char *s);
 void	ft_free(char **tab);
-void	check_characters(t_data *data);
 char	**ft_split(char *s, char c);
 void	flood_fill(t_data *data);
-//Game_play :
 void	game_play(t_data *data);
 #endif

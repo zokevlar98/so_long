@@ -6,11 +6,12 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 00:44:43 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/21 20:31:17 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/27 04:29:34 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include <string.h>
 
 void	put_map(t_data *data, char **argv)
 {
@@ -20,7 +21,7 @@ void	put_map(t_data *data, char **argv)
 	if (data->fd == -1)
 		error(data, "ERROR: No such file\n");
 	tmp = get_next_line(data->fd);
-	while (tmp)
+	while (tmp && ft_strncmp(tmp, "\n", 1) != 0)
 	{
 		data->line = ft_strjoin(data->line, tmp);
 		free(tmp);
@@ -107,7 +108,7 @@ void	check_characters(t_data *data)
 			if (ptr[i][j] != '0' && ptr[i][j] != '1' && ptr[i][j] != 'C'
 				&& ptr[i][j] != 'E' && ptr[i][j] != 'P')
 			{
-				ft_free(ptr);
+				ptr = NULL;
 				error(data, "ERROR: Invalide Character\n");
 			}
 			j++;

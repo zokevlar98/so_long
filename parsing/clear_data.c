@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 17:48:36 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/21 20:31:35 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/28 14:16:36 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,6 @@ void	clear_data(t_data *data)
 int	key_hook_mouse(t_data *data)
 {
 	clear_data(data);
-	ft_putstr_fd("OUT\n", STDOUT_FILENO);
+	ft_putstr_fd("YOU LOSE!\n", STDOUT_FILENO);
 	exit(EXIT_SUCCESS);
 }

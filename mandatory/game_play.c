@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:53:53 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/23 00:13:33 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/28 14:19:48 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ void	game_over(t_data *data, int win)
 	if (win == 1)
 	{
 		clear_data(data);
-		ft_putstr_fd("You win\n", STDOUT_FILENO);
+		ft_putstr_fd("YOU WIN!\n", STDOUT_FILENO);
 		exit(EXIT_SUCCESS);
 	}
 	if (win == 0)
 	{
 		clear_data(data);
-		ft_putstr_fd("OUT\n", STDOUT_FILENO);
+		ft_putstr_fd("YOU LOSE!\n", STDOUT_FILENO);
 		exit(EXIT_SUCCESS);
 	}
 	else
@@ -42,13 +42,13 @@ void	move_player(t_data *data, int key_code, int x, int y)
 {
 	x = data->x;
 	y = data->y;
-	if (key_code == W)
+	if (key_code == W || key_code == UP)
 		x--;
-	if (key_code == A)
+	if (key_code == A || key_code == LEFT)
 		y--;
-	if (key_code == S)
+	if (key_code == S || key_code == DOWN)
 		x++;
-	if (key_code == D)
+	if (key_code == D || key_code == RIGHT)
 		y++;
 	if (data->map[x][y] == '0' || data->map[x][y] == 'C')
 	{
@@ -70,7 +70,9 @@ int	key_hook(int key_code, t_data *data)
 {
 	if (key_code == 53)
 		game_over(data, 0);
-	if (key_code == W || key_code == A || key_code == S || key_code == D)
+	if (key_code == W || key_code == A || key_code == S || key_code == D
+		|| key_code == UP || key_code == LEFT || key_code == DOWN
+		|| key_code == RIGHT)
 		move_player(data, key_code, 0, 0);
 	return (0);
 }

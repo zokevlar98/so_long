@@ -1,7 +1,6 @@
 NAME = so_long
 
-CFLAGS = -Wall -Wextra -I ./includes -g
- # -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -I ./includes 
 
 RM = rm -rf
 
@@ -32,7 +31,7 @@ all : $(NAME)
 $(NAME): $(OBJS)
 	cc $(MLX_FLAGS) $(CFLAGS) $(OBJS) -o $(NAME)
 
-%.o:%.c includes/so_long.h
+%.o:%.c includes/so_long.h gnl/get_next_line.h
 	cc $(CFLAGS) -Imlx -c $< -o $@
 
 clean:
@@ -43,4 +42,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: clean
