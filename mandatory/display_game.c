@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 17:02:09 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/28 23:23:23 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/30 07:17:39 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	init_imgs(t_data *data)
 	int	width;
 	int	height;
 
-	data->img.player = mlx_xpm_file_to_image(data->mlx_p, "./textures/player.xpm",
-			&width, &height);
+	data->img.player = mlx_xpm_file_to_image(data->mlx_p,
+			"./textures/player.xpm", &width, &height);
 	if (!(data->img.player))
 		error(data, "ERROR: Upload textures failed\n");
 	data->img.coin = mlx_xpm_file_to_image(data->mlx_p, "./textures/coin.xpm",

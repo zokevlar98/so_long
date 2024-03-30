@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 00:44:43 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/28 22:50:32 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/30 07:06:58 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	put_map(t_data *data, char **argv)
 		(data->height)++;
 	}
 	if (data->height == 0)
-		error(data, "ERROR: Map Empty\n");
+		error(data, "ERROR: Invalid Map\n");
 	data->map = ft_split(data->line, '\n');
 	if (data->map == NULL)
 		error(data, "ERROR: Allcoation failed\n");

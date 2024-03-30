@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 23:25:41 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/28 23:24:46 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/30 06:56:05 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,4 +95,5 @@ char	**ft_split(char *s, char c);
 void	flood_fill(t_data *data);
 void	game_play(t_data *data);
 void	check_imgs(t_data *data);
+void	display_moves(t_data *data);
 #endif
