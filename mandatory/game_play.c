@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:53:53 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/30 06:57:13 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/30 07:40:49 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	game_over(t_data *data, int win)
 {
 	if (win == 1)
 	{
+		display_moves(data);
 		clear_data(data);
 		ft_putstr_fd("YOU WIN!\n", STDOUT_FILENO);
 		exit(EXIT_SUCCESS);
@@ -62,10 +63,7 @@ void	move_player(t_data *data, int key_code, int x, int y)
 		display_moves(data);
 	}
 	if (data->c == 0 && data->map[x][y] == 'E')
-	{
-		display_moves(data);
 		game_over(data, 1);
-	}
 }
 
 int	key_hook(int key_code, t_data *data)
