@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 12:10:54 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/30 07:23:03 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/30 08:06:28 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	main(int argc, char *argv[])
 		{
 			clear_data(data);
 			free(data);
+			data = NULL;
 		}
 	}
 	else
