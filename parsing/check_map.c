@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 00:44:43 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/30 07:06:58 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/06/03 00:33:20 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 void	put_map(t_data *data, char **argv)
 {
 	char	*tmp;
+	int		x;
 
 	data->fd = open(argv[1], O_RDWR, 0666);
 	if (data->fd == -1)
 		error(data, "ERROR: No such file\n");
 	tmp = get_next_line(data->fd);
-	while (tmp && ft_strncmp(tmp, "\n", 1) != 0)
+	while (tmp != NULL)
 	{
 		data->line = ft_strjoin(data->line, tmp);
 		free(tmp);
@@ -28,6 +29,9 @@ void	put_map(t_data *data, char **argv)
 		(data->height)++;
 	}
 	if (data->height == 0)
+		error(data, "ERROR: Invalid Map\n");
+	x = ft_strlen(data->line);
+	if (data->line[x - 1] == '\n')
 		error(data, "ERROR: Invalid Map\n");
 	data->map = ft_split(data->line, '\n');
 	if (data->map == NULL)
@@ -50,8 +54,8 @@ void	check_size(t_data *data)
 
 void	check_border_up_down(t_data *data)
 {
-	size_t	i;
-	size_t	j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -71,6 +75,8 @@ void	check_border_up_down(t_data *data)
 			error(data, "ERROR: No wall in border down\n");
 		j++;
 	}
+	if (i != (data->height - 1))
+		error(data, "ERROR: Invalid Map!\n");
 }
 
 void	check_border_left_right(t_data *data)
