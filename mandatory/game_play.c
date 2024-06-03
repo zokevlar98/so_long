@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:53:53 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/30 07:40:49 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/06/03 16:46:17 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	move_player(t_data *data, int key_code, int x, int y)
 		if (data->map[x][y] == 'C')
 			(data->c)--;
 		data->map[x][y] = 'P';
+		mlx_clear_window(data->mlx_p, data->win_p);
 		display_game(data);
 		display_moves(data);
 	}
